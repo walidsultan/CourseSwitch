@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="baseLayout" template="/WEB-INF/tiles/template/baseLayout.jsp">
+		<put-attribute name="title" value="Sample Title" />
+		<put-attribute name="heading" value="/WEB-INF/tiles/template/header.jsp" />
+		<put-attribute name="tagline" value="" />
+		<put-attribute name="navigation"
+			value="/WEB-INF/tiles/template/navigation.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />
+	</definition>
+
+	<definition name="welcome" extends="baseLayout">
+		<put-attribute name="title" value="Welcome" />
+	</definition>
+
+
+	<definition name="block" extends="baseLayout">
+		<put-attribute name="title" value="Block" />
+		<put-attribute name="body" value="/WEB-INF/jsp/block.jsp" />
+	</definition>
+
+	<definition name="blockAdd" extends="baseLayout">
+		<put-attribute name="title" value="Add Block" />
+		<put-attribute name="body" value="/WEB-INF/jsp/blockAdd.jsp" />
+	</definition>
+
+	<definition name="blockEdit" extends="baseLayout">
+		<put-attribute name="title" value="Edit Block" />
+		<put-attribute name="body" value="/WEB-INF/jsp/blockEdit.jsp" />
+	</definition>
+
+	<definition name="course" extends="baseLayout">
+		<put-attribute name="title" value="Course" />
+		<put-attribute name="body" value="/WEB-INF/jsp/course.jsp" />
+	</definition>
+
+	<definition name="courseAdd" extends="baseLayout">
+		<put-attribute name="title" value="Add Course" />
+		<put-attribute name="body" value="/WEB-INF/jsp/courseAdd.jsp" />
+	</definition>
+
+
+	<definition name="courseEdit" extends="baseLayout">
+		<put-attribute name="title" value="Edit Course" />
+		<put-attribute name="body" value="/WEB-INF/jsp/courseEdit.jsp" />
+	</definition>
+
+
+	<definition name="registerStudentCourse" extends="baseLayout">
+		<put-attribute name="title" value="Registered Course" />
+		<put-attribute name="body" value="/WEB-INF/jsp/registerStudentCourse.jsp" />
+	</definition>
+
+	<definition name="studentCourseAdd" extends="baseLayout">
+		<put-attribute name="title" value="Add User Story" />
+		<put-attribute name="body" value="/WEB-INF/jsp/studentCourseAdd.jsp" />
+	</definition>
+
+
+	<definition name="studentCourseEdit" extends="baseLayout">
+		<put-attribute name="title" value="Edit User Story" />
+		<put-attribute name="body" value="/WEB-INF/jsp/studentCourseEdit.jsp" />
+	</definition>
+
+
+	<definition name="student" extends="baseLayout">
+		<put-attribute name="title" value="Student" />
+		<put-attribute name="body" value="/WEB-INF/jsp/student.jsp" />
+	</definition>
+
+	<definition name="studentAdd" extends="baseLayout">
+		<put-attribute name="title" value="Add Student" />
+		<put-attribute name="body" value="/WEB-INF/jsp/studentAdd.jsp" />
+	</definition>
+
+
+	<definition name="studentEdit" extends="baseLayout">
+		<put-attribute name="title" value="Edit Student" />
+		<put-attribute name="body" value="/WEB-INF/jsp/studentEdit.jsp" />
+	</definition>
+
+
+	<definition name="login" extends="baseLayout">
+		<put-attribute name="title" value="Login" />
+		<put-attribute name="tagline" value="Enter your Credentials" />
+		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
+	</definition>
+
+</tiles-definitions>
