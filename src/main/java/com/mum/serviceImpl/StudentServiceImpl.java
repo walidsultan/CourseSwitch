@@ -1,7 +1,7 @@
 package com.mum.serviceImpl;
-
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -9,43 +9,42 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.mum.domain.Block;
-import com.mum.domain.Course;
-import com.mum.domain.Student;
-import com.mum.repository.BlockRepository;
-import com.mum.repository.CourseRepository;
-import com.mum.repository.StudentRepository;
-import com.mum.service.AdminService;
 
+import com.mum.domain.Student;
+import com.mum.repository.StudentRepository;
+import com.mum.service.StudentService;
 
 @Service
 @Transactional
-public class AdminSubSystemImpl implements AdminService {
-
+public class StudentServiceImpl implements StudentService {
 	@Autowired
-	BlockRepository blockRepository;
-	CourseRepository courseRepository;
-	StudentRepository studetnRepository;
-	
-	
+	StudentRepository studentRepository;
+
 	@Override
-	public Course getCourseById(Long id) {
-		
-		return courseRepository.findOne(id);
+	public Student getStudentById(Long id) {
+		return studentRepository.findOne(id);
+	}
+
+	@Override
+	public void saveStudent(Student student) {
+		studentRepository.save(student);
+	}
+
+	@Override
+	public List<Student> getAllStudents() {
+		return (List<Student>) studentRepository.findAll();
 	}
 
 	@Override
 	public boolean isCorrectUsernameAndPassword(String username, String password) {
-		final Student student = studetnRepository.getStudentByUsername(username);
+		final Student student = studentRepository.getStudentByUsername(username);
 		if (student == null) {
 			return false;
 		} else {
 			if (student.getPassword().equals(password)) {
-				// set authorization
-				List<GrantedAuthority> authority = new ArrayList<GrantedAuthority>();
-
+				
 				Authentication authentication = new UsernamePasswordAuthenticationToken(student,
-						student.getPassword(), authority);
+						student.getPassword(), null);
 
 				SecurityContextHolder.getContext().setAuthentication(authentication);
 				return true;
@@ -54,23 +53,4 @@ public class AdminSubSystemImpl implements AdminService {
 
 		}
 	}
-
-	@Override
-	public void saveBlock(Block blockname){
-		blockRepository.save(blockname);
-		
-	}
-
-	@Override
-	public void saveCourse(Course coursename) {
-		courseRepository.save(coursename);
-		
-	}
-
-	@Override
-	public List<Course> getAllCourseByName(Course coursename) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

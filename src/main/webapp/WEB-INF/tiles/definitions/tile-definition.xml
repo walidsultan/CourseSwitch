@@ -90,5 +90,15 @@
 		<put-attribute name="tagline" value="Enter your Credentials" />
 		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
 	</definition>
+	
+	<definition name="registeredCourses" extends="baseLayout">
+		<put-attribute name="title" value="Registered Courses" />
+		<put-attribute name="body" value="/WEB-INF/jsp/registeredCourses.jsp" />
+	</definition>
+	
+	<definition name="preferredCourses" extends="baseLayout">
+		<put-attribute name="title" value="Preferred Courses" />
+		<put-attribute name="body" value="/WEB-INF/jsp/preferredCourses.jsp" />
+	</definition>
 
 </tiles-definitions>

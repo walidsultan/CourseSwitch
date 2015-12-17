@@ -7,6 +7,11 @@
 	display: none;
 }
 
+.prefCourse{
+	width:100%;
+	margin-bottom:5px;
+}
+
 .dialogHeader {
 	float: left;
 	width: 94%;
@@ -99,7 +104,7 @@ body {
 
 .item {
 	display: inline-block;
-	width: 200px;
+	width: 220px;
 	border: 1px solid #ccc;
 	padding: 0 15px;
 	margin-right: 10px;
@@ -136,7 +141,14 @@ body {
 }
 
 .form-group {
+        float: left;
     margin-bottom: 11px;
+    width: 100%;
+}
+
+.form-group label,.form-group div
+{
+	float:left;
 }
 
 .hidden{

@@ -6,7 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -29,6 +31,12 @@ public class Student implements Serializable{
 	@Size(min=4,max=15,message="First Name length should be between {1} and {0}")
 	private String firstName;
 	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	@NotEmpty
 	@Size(min=4,max=15,message="Last Name length should be between {1} and {0}")
 	private String lastName;
@@ -41,8 +49,6 @@ public class Student implements Serializable{
 	private String username;
 	@NotEmpty
 	private String password;
-	@OneToMany
-	private List<Course> course;
 	
 
 	public Long getStudentid() {
@@ -75,12 +81,6 @@ public class Student implements Serializable{
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public List<Course> getCourse() {
-		return course;
-	}
-	public void setCourse(List<Course> course) {
-		this.course = course;
 	}
 	public String getUsername() {
 		return username;

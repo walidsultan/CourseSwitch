@@ -1,5 +1,9 @@
 package com.mum.service;
 
-public interface CourseService {
+import java.util.List;
 
+import com.mum.domain.Course;
+
+public interface CourseService {
+   List<Course> getAllCourses();
 }

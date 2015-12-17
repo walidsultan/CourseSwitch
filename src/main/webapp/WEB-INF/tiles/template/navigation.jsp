@@ -13,12 +13,9 @@
 				code="navigation.registerstudent.label" /></a></li>
 </security:authorize>
 
-<security:authorize access="hasRole('student')">
-	<li><a href="<spring:url value="/AdminSubsystem/Student"/>"><spring:message
-				code="navigation.student.label" /></a></li>
-</security:authorize>
-
 <security:authorize access="isAuthenticated()">
+	<li><a href="<spring:url value="/RegisteredCourses"/>"><spring:message
+				code="navigation.courses.label" /></a></li>
 	<li><a href="<spring:url value="/logout"/>"><spring:message
 				code="navigation.logout.label" /></a></li>
 </security:authorize>
